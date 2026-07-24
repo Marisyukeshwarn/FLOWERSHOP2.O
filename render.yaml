@@ -1,9 +1,9 @@
-# render.yaml — Render Blueprint for SUTHISKA Bloom Studio
+# render.yaml — Render Blueprint for Mahalakshmi Bloom Studio
 # https://render.com/docs/blueprint-spec
 
 services:
   - type: web
-    name: suthiska-bloom-studio
+    name: mahalakshmi-bloom-studio
     runtime: node
     region: singapore   # closest to India; change to "frankfurt" or "ohio" if preferred
     plan: free          # upgrade to "starter" for always-on (no sleep)
