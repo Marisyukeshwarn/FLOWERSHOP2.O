@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Plus, Edit2, Trash2, X, Image as ImageIcon, Sparkles, Check, Wifi, RefreshCw } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Plus, Edit2, Trash2, X, Image as ImageIcon, Sparkles, Check, Wifi, RefreshCw, Upload } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 export default function AdminProductsPage() {
@@ -21,6 +21,20 @@ export default function AdminProductsPage() {
     description: "",
     estimatedLife: "24–36 hours",
   });
+  const [imageUploading, setImageUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImageUploading(true);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setFormData((prev) => ({ ...prev, imageUrl: reader.result as string }));
+      setImageUploading(false);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const categories = [
     { id: "wedding", name: "Wedding Malas" },
@@ -67,9 +81,9 @@ export default function AdminProductsPage() {
       name: "",
       category: "wedding",
       price: 450,
-      imageUrl: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop",
-      shortDescription: "Fresh handcrafted floral arrangement",
-      description: "Artisanal flower arrangement crafted with premium fresh blooms.",
+      imageUrl: "",
+      shortDescription: "",
+      description: "",
       estimatedLife: "24–36 hours",
     });
     setIsModalOpen(true);
@@ -312,22 +326,41 @@ export default function AdminProductsPage() {
 
               <div>
                 <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
-                  Image URL
+                  Product Image
                 </label>
+                {/* File Upload Area */}
+                <div
+                  onClick={() => fileInputRef.current?.click()}
+                  className="relative cursor-pointer group border-2 border-dashed border-gray-200 hover:border-[#EB7297] rounded-xl p-4 transition-colors bg-gray-50 hover:bg-[#FEF0F3]/30 flex flex-col items-center justify-center gap-2 min-h-[100px]"
+                >
+                  {imageUploading ? (
+                    <RefreshCw className="w-6 h-6 animate-spin text-[#EB7297]" />
+                  ) : formData.imageUrl ? (
+                    <>
+                      <img
+                        src={formData.imageUrl}
+                        alt="Preview"
+                        className="w-24 h-24 rounded-xl object-cover shadow-md"
+                      />
+                      <span className="text-xs text-[#EB7297] font-medium group-hover:underline">
+                        Click to change image
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <Upload className="w-7 h-7 text-gray-400 group-hover:text-[#EB7297] transition-colors" />
+                      <p className="text-sm font-medium text-gray-600">Click to upload image</p>
+                      <p className="text-xs text-gray-400">PNG, JPG, WEBP, GIF — any format</p>
+                    </>
+                  )}
+                </div>
                 <input
-                  type="url"
-                  required
-                  value={formData.imageUrl}
-                  onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                  placeholder="https://images.unsplash.com/..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#EB7297] focus:border-transparent text-sm"
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageFileChange}
                 />
-                {formData.imageUrl && (
-                  <div className="mt-2 flex items-center gap-3 p-2 bg-gray-50 rounded-xl border border-gray-100">
-                    <img src={formData.imageUrl} alt="Preview" className="w-12 h-12 rounded-lg object-cover" />
-                    <span className="text-xs text-gray-500">Image preview</span>
-                  </div>
-                )}
               </div>
 
               <div>
