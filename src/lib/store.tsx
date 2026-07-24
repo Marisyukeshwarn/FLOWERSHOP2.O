@@ -265,27 +265,27 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   });
 
   const [productsState, productsDispatch] = useReducer(productsReducer, {
-    items: fallbackProducts, // Start with fallback for SSR/initial render
+    items: [], // Start empty
     isLoading: true,
   });
 
   // Hydrate from localStorage on mount
   useEffect(() => {
     try {
-      const savedCart = localStorage.getItem("suthiska-cart");
+      const savedCart = localStorage.getItem("mahalakshmi-cart");
       if (savedCart) cartDispatch({ type: "HYDRATE", payload: JSON.parse(savedCart) });
 
-      const savedWishlist = localStorage.getItem("suthiska-wishlist");
+      const savedWishlist = localStorage.getItem("mahalakshmi-wishlist");
       if (savedWishlist) wishlistDispatch({ type: "HYDRATE", payload: JSON.parse(savedWishlist) });
 
-      const savedAuth = localStorage.getItem("suthiska-auth");
+      const savedAuth = localStorage.getItem("mahalakshmi-auth");
       if (savedAuth) authDispatch({ type: "HYDRATE", payload: JSON.parse(savedAuth) });
       else authDispatch({ type: "HYDRATE", payload: { user: null, isAuthenticated: false, addresses: [], isHydrated: true } });
 
-      const savedProducts = localStorage.getItem("suthiska-products");
+      const savedProducts = localStorage.getItem("mahalakshmi-products");
       if (savedProducts) {
         const parsed = JSON.parse(savedProducts);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed)) {
           productsDispatch({ type: "SET_PRODUCTS", payload: parsed });
         }
       }
@@ -337,11 +337,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         if (Array.isArray(data)) {
           productsDispatch({ type: 'SET_PRODUCTS', payload: data });
         } else {
-          productsDispatch({ type: 'SET_PRODUCTS', payload: fallbackProducts });
+          productsDispatch({ type: 'SET_PRODUCTS', payload: [] });
         }
       })
       .catch(() => {
-        productsDispatch({ type: 'SET_PRODUCTS', payload: fallbackProducts });
+        productsDispatch({ type: 'SET_PRODUCTS', payload: [] });
       })
       .finally(() => {
         // Connect SSE only AFTER initial fetch resolves to prevent race conditions
@@ -356,15 +356,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   // Persist cart to localStorage
   useEffect(() => {
-    localStorage.setItem("suthiska-cart", JSON.stringify(cartState));
+    localStorage.setItem("mahalakshmi-cart", JSON.stringify(cartState));
   }, [cartState]);
 
   useEffect(() => {
-    localStorage.setItem("suthiska-wishlist", JSON.stringify(wishlistState.items));
+    localStorage.setItem("mahalakshmi-wishlist", JSON.stringify(wishlistState.items));
   }, [wishlistState]);
 
   useEffect(() => {
-    localStorage.setItem("suthiska-auth", JSON.stringify(authState));
+    localStorage.setItem("mahalakshmi-auth", JSON.stringify(authState));
   }, [authState]);
 
   const totalItems = cartState.items.reduce((sum, i) => sum + i.quantity, 0);

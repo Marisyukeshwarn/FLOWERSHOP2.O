@@ -6,15 +6,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   
   if (!product) {
     return {
-      title: 'Product Not Found | SUTHISKA Bloom Studio'
+      title: 'Product Not Found | MAHALAKSHMI Bloom Studio'
     };
   }
 
   return {
-    title: `${product.name} | SUTHISKA Bloom Studio`,
+    title: `${product.name} | MAHALAKSHMI Bloom Studio`,
     description: product.description,
     openGraph: {
-      title: `${product.name} | SUTHISKA Bloom Studio`,
+      title: `${product.name} | MAHALAKSHMI Bloom Studio`,
       description: product.description,
       images: product.images && product.images.length > 0 ? [
         {

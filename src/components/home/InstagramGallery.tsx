@@ -24,7 +24,7 @@ export function InstagramGallery() {
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
           </svg>
-          @suthiskabloom
+          @mahalakshmibloom
         </h2>
         <p className="text-gray-500 mt-4 max-w-xl mx-auto">
           Join our community of over 50,000 flower lovers. Tag us in your special moments to be featured.

@@ -22,13 +22,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://suthiskabloom.com"),
+  metadataBase: new URL("https://mahalakshmibloom.com"),
   alternates: {
     canonical: "/",
   },
   title: {
-    default: "SUTHISKA Bloom Studio | Premium Flower Mala & Wedding Garlands",
-    template: "%s | SUTHISKA Bloom Studio",
+    default: "MAHALAKSHMI Bloom Studio | Premium Flower Mala & Wedding Garlands",
+    template: "%s | MAHALAKSHMI Bloom Studio",
   },
   description:
     "India's premium Flower Mala e-commerce platform. Custom Wedding Malas, Entrance Malas, Reception Garlands, Temple Flowers & more. Order fresh, handcrafted floral designs for every occasion in Coimbatore.",
@@ -45,28 +45,28 @@ export const metadata: Metadata = {
     "Coimbatore florist",
     "bridal flowers",
   ],
-  authors: [{ name: "SUTHISKA Bloom Studio" }],
-  creator: "SUTHISKA Bloom Studio",
+  authors: [{ name: "MAHALAKSHMI Bloom Studio" }],
+  creator: "MAHALAKSHMI Bloom Studio",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://suthiskabloom.com",
-    siteName: "SUTHISKA Bloom Studio",
-    title: "SUTHISKA Bloom Studio | Premium Flower Mala & Wedding Garlands",
+    url: "https://mahalakshmibloom.com",
+    siteName: "MAHALAKSHMI Bloom Studio",
+    title: "MAHALAKSHMI Bloom Studio | Premium Flower Mala & Wedding Garlands",
     description:
       "India's premium Flower Mala e-commerce platform. Custom Wedding Malas, Entrance Malas, Reception Garlands & Temple Flowers.",
     images: [
       {
-        url: "https://suthiskabloom.com/og-image.jpg",
+        url: "https://mahalakshmibloom.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SUTHISKA Bloom Studio",
+        alt: "MAHALAKSHMI Bloom Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SUTHISKA Bloom Studio | Premium Flower Mala",
+    title: "MAHALAKSHMI Bloom Studio | Premium Flower Mala",
     description: "Custom Wedding Malas, Reception Garlands & Temple Flowers.",
   },
   robots: {

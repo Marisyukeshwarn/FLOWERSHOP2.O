@@ -99,7 +99,7 @@ export default function ProductPage() {
       try {
         await navigator.share({
           title: product.name,
-          text: `Check out ${product.name} at SUTHISKA Bloom Studio`,
+          text: `Check out ${product.name} at MAHALAKSHMI Bloom Studio`,
           url: url,
         });
       } catch (err) {
@@ -342,7 +342,7 @@ export default function ProductPage() {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="prose prose-pink max-w-none">
                 <p className="text-gray-600 leading-relaxed text-lg">{product.description}</p>
                 <p className="text-gray-600 leading-relaxed mt-4">
-                  Every SUTHISKA mala is a work of art, meticulously hand-tied by our expert artisans who have practiced the craft for generations. We use only the finest export-quality blooms, ensuring your garland not only looks breathtaking but carries an enchanting fragrance throughout your event.
+                  Every MAHALAKSHMI mala is a work of art, meticulously hand-tied by our expert artisans who have practiced the craft for generations. We use only the finest export-quality blooms, ensuring your garland not only looks breathtaking but carries an enchanting fragrance throughout your event.
                 </p>
               </motion.div>
             )}

@@ -38,7 +38,7 @@ export function Footer() {
           <div className="space-y-6">
             <Link href="/" className="inline-block group">
               <span className="font-serif text-2xl font-bold tracking-tight text-white group-hover:text-[#EB7297] transition-colors">
-                SUTHISKA
+                MAHALAKSHMI
                 <span className="block text-[10px] font-sans tracking-[0.2em] text-[#93A186] uppercase mt-0.5">
                   Bloom Studio
                 </span>
@@ -112,7 +112,7 @@ export function Footer() {
                   <Mail className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <span className="block text-white font-medium mb-1">hello@suthiskabloom.com</span>
+                  <span className="block text-white font-medium mb-1">hello@mahalakshmibloom.com</span>
                   <span className="text-xs text-gray-500">For online order queries</span>
                 </div>
               </li>
@@ -130,7 +130,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} SUTHISKA Bloom Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} MAHALAKSHMI Bloom Studio. All rights reserved.</p>
           <div className="flex space-x-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

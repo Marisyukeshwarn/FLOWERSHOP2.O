@@ -17,7 +17,7 @@ export default function AboutPage() {
             <div className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-sage/10 shadow-lg">
               <img 
                 src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800&auto=format&fit=crop"
-                alt="About Suthiska Bloom Studio"
+                alt="About Mahalakshmi Bloom Studio"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -29,10 +29,10 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6 text-foreground/80 font-light leading-relaxed"
           >
-            <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-8">About Suthiska</h1>
+            <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-8">About Mahalakshmi</h1>
             
             <p>
-              Welcome to SUTHISKA Bloom Studio, where we transform nature's most beautiful creations into unforgettable memories. Founded with a deep passion for floral artistry and a reverence for traditional craftsmanship, our studio is dedicated to elevating the aesthetics of your most cherished moments.
+              Welcome to MAHALAKSHMI Bloom Studio, where we transform nature's most beautiful creations into unforgettable memories. Founded with a deep passion for floral artistry and a reverence for traditional craftsmanship, our studio is dedicated to elevating the aesthetics of your most cherished moments.
             </p>
             
             <p>

@@ -74,7 +74,7 @@ function LoginContent() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-block">
             <span className="font-serif text-3xl font-bold tracking-tight text-[#1A1A2E]">
-              SUTHISKA
+              MAHALAKSHMI
               <span className="block text-xs font-sans tracking-[0.2em] text-[#93A186] uppercase mt-1">
                 Bloom Studio
               </span>
@@ -84,7 +84,7 @@ function LoginContent() {
             {isLogin ? "Welcome back" : "Create an account"}
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            {isLogin ? "Enter your details to access your account." : "Join SUTHISKA to track orders and save your wishlists."}
+            {isLogin ? "Enter your details to access your account." : "Join MAHALAKSHMI to track orders and save your wishlists."}
           </p>
         </div>
 

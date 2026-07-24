@@ -8,7 +8,7 @@ interface ProductStore {
 const globalForProductStore = global as unknown as { productStore: ProductStore };
 
 export const productStore = globalForProductStore.productStore || {
-  products: JSON.parse(JSON.stringify(fallbackProducts)) as Product[],
+  products: [] as Product[],
 };
 
 if (process.env.NODE_ENV !== 'production') globalForProductStore.productStore = productStore;

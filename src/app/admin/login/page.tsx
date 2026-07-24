@@ -83,7 +83,7 @@ function AdminLoginContent() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="block w-full pl-10 pr-4 py-3 bg-white/10 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#EB7297] focus:border-transparent transition-all"
-                  placeholder="admin@suthiskabloom.com"
+                  placeholder="admin@mahalakshmibloom.com"
                 />
               </div>
             </div>

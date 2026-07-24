@@ -76,7 +76,7 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center group relative z-50">
               <span className="font-serif text-2xl font-bold tracking-tight text-[#1A1A2E] group-hover:text-[#EB7297] transition-colors">
-                SUTHISKA
+                MAHALAKSHMI
                 <span className="block text-[10px] font-sans tracking-[0.2em] text-[#93A186] uppercase mt-0.5">
                   Bloom Studio
                 </span>
@@ -241,7 +241,7 @@ export function Navbar() {
           >
             <div className="flex justify-between items-center h-20 px-4 border-b border-gray-100">
               <span className="font-serif text-2xl font-bold tracking-tight text-[#1A1A2E]">
-                SUTHISKA
+                MAHALAKSHMI
                 <span className="block text-[10px] font-sans tracking-[0.2em] text-[#93A186] uppercase mt-0.5">
                   Bloom Studio
                 </span>

@@ -117,7 +117,7 @@ export default function ContactPage() {
                   <Mail className="w-6 h-6 text-[#93A186] mt-1 mr-4 shrink-0" />
                   <div>
                     <h4 className="font-medium text-foreground mb-1">Email</h4>
-                    <p className="text-foreground/70 font-light">hello@suthiskabloom.com</p>
+                    <p className="text-foreground/70 font-light">hello@mahalakshmibloom.com</p>
                   </div>
                 </div>
 
