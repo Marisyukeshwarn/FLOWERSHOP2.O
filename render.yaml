@@ -1,0 +1,32 @@
+# render.yaml — Render Blueprint for SUTHISKA Bloom Studio
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: suthiska-bloom-studio
+    runtime: node
+    region: singapore   # closest to India; change to "frankfurt" or "ohio" if preferred
+    plan: free          # upgrade to "starter" for always-on (no sleep)
+
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false       # ← set this manually in Render dashboard
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXTAUTH_URL
+        sync: false
+      - key: NEXTAUTH_SECRET
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+
+    healthCheckPath: /
+
+    autoDeploy: true     # redeploy automatically on git push
