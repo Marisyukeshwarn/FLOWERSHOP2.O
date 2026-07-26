@@ -21,12 +21,17 @@ function AdminLoginContent() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (formData.email !== "mahalakshmi.suresh.1979@gmail.com" || formData.password !== "Maha@123") {
+      alert("Invalid Admin Credentials");
+      return;
+    }
 
     dispatch({
       type: "LOGIN",
       payload: {
         id: `adm_${Date.now()}`,
-        name: formData.email.split("@")[0] || "Administrator",
+        name: "Mahalakshmi",
         email: formData.email,
         role: "admin",
         phone: "+91 98765 43210",
@@ -83,7 +88,7 @@ function AdminLoginContent() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="block w-full pl-10 pr-4 py-3 bg-white/10 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#EB7297] focus:border-transparent transition-all"
-                  placeholder="admin@mahalakshmibloom.com"
+                  placeholder="mahalakshmi.suresh.1979@gmail.com"
                 />
               </div>
             </div>

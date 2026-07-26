@@ -1,13 +1,39 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { StarRating } from "@/components/ui/StarRating";
-import { testimonials } from "@/lib/data";
+
+interface Testimonial {
+  id: string;
+  name: string;
+  event: string;
+  location: string;
+  rating: number;
+  text: string;
+  avatar: string;
+}
 
 export function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/testimonials")
+      .then(r => r.json())
+      .then(data => {
+        setTestimonials(Array.isArray(data) ? data : []);
+        setLoaded(true);
+      })
+      .catch(() => setLoaded(true));
+  }, []);
+
+  if (!loaded || testimonials.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-24 bg-[#FEF0F3] relative overflow-hidden" ref={ref}>

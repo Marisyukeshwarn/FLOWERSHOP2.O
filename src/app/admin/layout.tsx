@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { LayoutDashboard, ShoppingCart, Users, Package, Settings, LogOut, Search, Images } from "lucide-react";
+import { LayoutDashboard, ShoppingCart, Users, Package, Settings, LogOut, Search, Images, MessageSquareQuote } from "lucide-react";
 import { useAuth } from "@/lib/store";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -35,6 +35,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: "Orders", href: "/admin/orders", icon: ShoppingCart },
     { name: "Products", href: "/admin/products", icon: Package },
     { name: "Gallery", href: "/admin/gallery", icon: Images },
+    { name: "Testimonials", href: "/admin/testimonials", icon: MessageSquareQuote },
     { name: "Customers", href: "/admin/customers", icon: Users },
     { name: "Settings", href: "/admin/settings", icon: Settings },
   ];
