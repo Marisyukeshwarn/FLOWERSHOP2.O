@@ -5,8 +5,9 @@ export const dynamic = 'force-dynamic';
 
 export async function DELETE(
   _request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  galleryStore.images = galleryStore.images.filter(img => img.id !== params.id);
+  const { id } = await params;
+  galleryStore.images = galleryStore.images.filter(img => img.id !== id);
   return NextResponse.json({ success: true });
 }

@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { FloatingButtons } from "@/components/layout/FloatingButtons";
 import { StoreProvider } from "@/lib/store";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
 import "./globals.css";
@@ -95,10 +92,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
         <NextAuthProvider>
           <StoreProvider>
-            <Navbar />
-            <main className="flex-grow pt-20">{children}</main>
-            <Footer />
-            <FloatingButtons />
+            {children}
           </StoreProvider>
         </NextAuthProvider>
       </body>
