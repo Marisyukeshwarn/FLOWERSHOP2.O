@@ -203,7 +203,7 @@ export default function AdminDashboard() {
                   <tr key={order.id} className="hover:bg-gray-50/50 transition-colors">
                     <td className="px-6 py-3.5 font-medium text-gray-900">{order.id}</td>
                     <td className="px-6 py-3.5 text-gray-500">
-                      {new Date(order.date).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
+                      {new Date(order.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
                     </td>
                     <td className="px-6 py-3.5">
                       <span className={`px-2.5 py-1 rounded-full text-xs font-semibold capitalize ${getStatusBadge(order.status)}`}>

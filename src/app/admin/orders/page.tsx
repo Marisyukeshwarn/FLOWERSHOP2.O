@@ -82,7 +82,7 @@ export default function AdminOrders() {
     const headers = ["Order ID", "Date", "Items", "Total (Rs)", "Status"];
     const rows = filteredOrders.map(order => [
       order.id,
-      new Date(order.date).toLocaleDateString('en-IN'),
+      new Date(order.createdAt).toLocaleDateString('en-IN'),
       order.items.map((i: any) => `${i.name} (Qty: ${i.qty})`).join('; '),
       order.total,
       STATUS_LABELS[order.status] ?? order.status
@@ -180,7 +180,7 @@ export default function AdminOrders() {
                       <span className="font-semibold text-gray-900">{order.id}</span>
                     </td>
                     <td className="px-6 py-4 text-gray-500">
-                      {new Date(order.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                      {new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </td>
                     <td className="px-6 py-4 text-gray-600">
                       {order.items.map((i: any) => i.name).join(', ')}
