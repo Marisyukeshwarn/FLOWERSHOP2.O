@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   TrendingUp, Users, ShoppingBag, IndianRupee,
-  ArrowUpRight, Package, Wifi, Clock, ChevronRight
+  ArrowUpRight, Package, Wifi, Clock, ChevronRight, Images
 } from "lucide-react";
 
 const STATUS_LABELS: Record<string, string> = {
@@ -28,6 +28,7 @@ function getStatusBadge(status: string) {
 export default function AdminDashboard() {
   const [orders, setOrders] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
+  const [galleryCount, setGalleryCount] = useState<number>(0);
   const [activity, setActivity] = useState<{ id: string; msg: string; time: string; type: string }[]>([]);
   const [connected, setConnected] = useState(false);
 
@@ -36,9 +37,11 @@ export default function AdminDashboard() {
     Promise.all([
       fetch("/api/orders").then(r => r.json()),
       fetch("/api/products").then(r => r.json()),
-    ]).then(([ordersData, productsData]) => {
+      fetch("/api/gallery").then(r => r.json()),
+    ]).then(([ordersData, productsData, galleryData]) => {
       setOrders(Array.isArray(ordersData) ? ordersData : []);
       setProducts(Array.isArray(productsData) ? productsData : []);
+      setGalleryCount(Array.isArray(galleryData) ? galleryData.length : 0);
     });
 
     // SSE for live updates
@@ -115,6 +118,14 @@ export default function AdminDashboard() {
       color: "bg-[#eef4ea] text-[#93A186]",
     },
     {
+      name: "Gallery Images",
+      value: galleryCount.toString(),
+      change: "",
+      trend: "up",
+      icon: Images,
+      color: "bg-orange-50 text-orange-600",
+    },
+    {
       name: "Total Orders",
       value: orders.length.toString(),
       change: "+18.1%",
@@ -141,7 +152,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
